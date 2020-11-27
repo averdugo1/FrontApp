@@ -1,0 +1,18 @@
+import { RoutesRecognized } from "@angular/router";
+
+
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import {DepartamentosComponent } from './components/departamentos/departamentos.component';
+import { AboutComponent } from './components/about/about.component';
+import { DepartamentoComponent } from './components/departamento/departamento.component';
+
+const APP_ROUTES: Routes = [
+    { path: 'home', component: HomeComponent },
+    { path: 'departamentos', component: DepartamentosComponent },
+    { path: 'about', component: AboutComponent },
+    { path: 'departamento/:id', component: DepartamentoComponent},
+    { path: '**', pathMatch: 'full', redirectTo: 'home'}
+];
+/* , { useHash:true } */
+export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);
