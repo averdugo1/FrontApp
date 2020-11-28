@@ -21,6 +21,7 @@ import { DepartamentosComponent } from './components/departamentos/departamentos
 import { DepartamentoComponent } from './components/departamento/departamento.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RegistroComponent } from './components/registro/registro.component';
     DepartamentosComponent,
     DepartamentoComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
