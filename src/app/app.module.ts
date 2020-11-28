@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 
 
 
@@ -20,6 +19,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { DepartamentosComponent } from './components/departamentos/departamentos.component';
 import { DepartamentoComponent } from './components/departamento/departamento.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +28,14 @@ import { DepartamentoComponent } from './components/departamento/departamento.co
     HomeComponent,
     AboutComponent,
     DepartamentosComponent,
-    DepartamentoComponent
+    DepartamentoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     APP_ROUTING
   ],
   providers: [DepartamentoService],

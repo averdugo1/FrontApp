@@ -16,6 +16,7 @@ export class DepartamentoService {
   getDepartamentos(): Observable<Departamento[]> { 
     
     return this.http.get<Departamento[]>(this.urlEndPoint+'all');
+    
   }
 
   getDepartamento( idx: string ): Observable<Departamento> {
