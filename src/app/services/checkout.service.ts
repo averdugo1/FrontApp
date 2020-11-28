@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class CheckoutService {
 
-  private urlEndPoint: string = 'http://40.117.177.9:8080/api/v1/checkout';
+  //private urlEndPoint: string = 'http://40.117.177.9:8080/api/v1/checkout';
+  private urlEndPoint: string = 'http://localhost:8080/api/v1/checkout';
 
   constructor(private http: HttpClient) { }
 

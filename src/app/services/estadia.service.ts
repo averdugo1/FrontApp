@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class EstadiaService {
 
-  //private urlEndPoint: string = 'http://40.117.177.9:8080/api/v1/reservas';
-  private urlEndPoint: string = 'http://localhost:8080/api/v1/reservas';
+  //private urlEndPoint: string = 'http://40.117.177.9:8080/api/v1/estadias';
+  private urlEndPoint: string = 'http://localhost:8080/api/v1/estadias';
 
   constructor(private http: HttpClient) { }
 
