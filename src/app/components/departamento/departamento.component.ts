@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Departamento } from '../departamentos/departamentos';
 import { DepartamentoService } from '../departamentos/departamentos.service';
 
 @Component({
@@ -9,15 +10,18 @@ import { DepartamentoService } from '../departamentos/departamentos.service';
 })
 export class DepartamentoComponent implements OnInit {
 
-  depa:any = {};
+  depa:Departamento;
+  depa2:any = {};
 
   constructor( private actRoute: ActivatedRoute,
               private _departamentosService: DepartamentoService ) { 
 
     this.actRoute.params.subscribe( params => {
-      console.log( params['id'] );
-      this.depa = this._departamentosService.getDepartamento( params['id'] );
-      console.log(this.depa);
+      this._departamentosService.getDepartamento( params['id'] ).subscribe(
+        (departamentos) => {
+          this.depa = departamentos;
+        }
+      );
     })
   }
 
