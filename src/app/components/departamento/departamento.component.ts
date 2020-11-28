@@ -38,8 +38,7 @@ export class DepartamentoComponent implements OnInit {
       })
     }
 
-  reservarDepa() {
-    this.router.navigate( ['/pago']);
+  reservarDepa() {    
     var fechai = '2020/10/14';
     var fechat = '2020/10/16';
     //var dias = '23';
@@ -67,6 +66,7 @@ export class DepartamentoComponent implements OnInit {
                 this.reservasService.Crear(fechai,fechat,idDepartamento,idPersona,idEstadia).subscribe(
                   (data:any)=> {
                     console.log('Reserva', data);
+                    this.router.navigate( ['/pago']);
                   },
                   (err:any)=> {
                     console.log(err);
