@@ -6,12 +6,14 @@ import { HomeComponent } from './components/home/home.component';
 import {DepartamentosComponent } from './components/departamentos/departamentos.component';
 import { AboutComponent } from './components/about/about.component';
 import { DepartamentoComponent } from './components/departamento/departamento.component';
+import { LoginComponent } from './components/login/login.component';
 
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'departamentos', component: DepartamentosComponent },
     { path: 'about', component: AboutComponent },
     { path: 'departamento/:id', component: DepartamentoComponent},
+    { path: 'login', component: LoginComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 /* , { useHash:true } */

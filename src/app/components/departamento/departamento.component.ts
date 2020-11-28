@@ -32,6 +32,16 @@ export class DepartamentoComponent implements OnInit {
         }
       );
     })
+
+    this.depa = {
+      "idDepartmento": 1,
+      "nombre": "Postman - Test",
+      "direccion": "Postman 32",
+      "region": "Metropolitana",
+      "ciudad": "Santiago",
+      "precio": 26000,
+      "disponibilidad": false
+    }
   }
 
   ngOnInit(): void {
