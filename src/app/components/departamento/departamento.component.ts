@@ -12,23 +12,20 @@ import { DepartamentoService } from '../departamentos/departamentos.service';
 })
 export class DepartamentoComponent implements OnInit {
 
-  depa:any = {};
+  depa:Departamento;
   departamentoId: string;
-  //@Input()depart: Departamento;
 
   constructor( private actRoute: ActivatedRoute,
               private _departamentosService: DepartamentoService,private reservasService: ReservasService ) { 
 
     this.actRoute.params.subscribe( params => {
-      console.log( params['id'] );
-      this.departamentoId =  params['id'];
       this._departamentosService.getDepartamento( params['id'] ).subscribe(
-        (data:any)=> {
-          this.depa = data;
-          console.log(data);
+        (departamentos) => {
+          this.departamentoId =  params['id'];
+          this.depa = departamentos;
+
         }
       );
-      //console.log(this.depa);
     })
   }
 
