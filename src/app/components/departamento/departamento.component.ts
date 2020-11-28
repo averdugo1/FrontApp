@@ -1,8 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ReservasService } from 'src/app/services/reservas.service';
 import { Departamento } from '../departamentos/departamentos';
 import { DepartamentoService } from '../departamentos/departamentos.service';
+import { ReservasService } from 'src/app/services/reservas.service';
+import { CheckinService } from 'src/app/services/checkin.service';
+import { CheckoutService } from 'src/app/services/checkout.service';
+import { EstadiaService } from 'src/app/services/estadia.service';
 
 @Component({
   selector: 'app-departamento',
@@ -15,9 +18,12 @@ export class DepartamentoComponent implements OnInit {
   departamentoId: string;
 
   constructor(private actRoute: ActivatedRoute,
-              private _departamentosService: DepartamentoService,
-              private reservasService: ReservasService ) { 
-    
+    private _departamentosService: DepartamentoService,
+    private _checkinService: CheckinService,
+    private _checkoutService: CheckoutService,
+    private _estadiaService: EstadiaService,
+    private reservasService: ReservasService ) { 
+
     this.actRoute.params.subscribe( params => {
       this._departamentosService.getDepartamento( params['id'] ).subscribe(
         (departamentos) => {
@@ -26,16 +32,6 @@ export class DepartamentoComponent implements OnInit {
         }
       );
     })
-
-    this.depa = {
-      "idDepartmento": 1,
-      "nombre": "Postman - Test",
-      "direccion": "Postman 32",
-      "region": "Metropolitana",
-      "ciudad": "Santiago",
-      "precio": 26000,
-      "disponibilidad": false
-    }
   }
 
   ngOnInit(): void {
@@ -47,6 +43,13 @@ export class DepartamentoComponent implements OnInit {
     var dias = '23';
     var idPersona = '41';
     var idDepartamento = this.departamentoId;
+    var pago = this.depa.precio * 0.1 ;
+    // TODO: Crear Checkin, Checkout, Estadia y luego reserva
+    this._checkinService.crear(fechai, pago).subscribe(
+      (data:any)=> {
+        console.log(data);
+      }
+    );
 
     this.reservasService.Crear(fechai,fechat,idDepartamento,idPersona,dias).subscribe(
       (data:any)=> {
@@ -56,6 +59,7 @@ export class DepartamentoComponent implements OnInit {
         console.log(err);
       }
     );
+    
     console.log('Ingreso de reserva');
   }
 
