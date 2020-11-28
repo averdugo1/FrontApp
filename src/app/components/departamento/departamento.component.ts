@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Departamento } from '../departamentos/departamentos';
 import { DepartamentoService } from '../departamentos/departamentos.service';
 import { ReservasService } from 'src/app/services/reservas.service';
@@ -22,7 +22,8 @@ export class DepartamentoComponent implements OnInit {
     private _checkinService: CheckinService,
     private _checkoutService: CheckoutService,
     private _estadiaService: EstadiaService,
-    private reservasService: ReservasService ) { 
+    private reservasService: ReservasService,
+    private router:Router ) { 
 
     this.actRoute.params.subscribe( params => {
       this._departamentosService.getDepartamento( params['id'] ).subscribe(
@@ -38,6 +39,7 @@ export class DepartamentoComponent implements OnInit {
   }
 
   reservarDepa() {
+    this.router.navigate( ['/pago']);
     var fechai = '2020/10/14';
     var fechat = '2020/10/16';
     //var dias = '23';
