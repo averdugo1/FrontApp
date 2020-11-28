@@ -25,18 +25,18 @@ export class DepartamentoComponent implements OnInit {
     private reservasService: ReservasService,
     private router:Router ) { 
 
-    this.actRoute.params.subscribe( params => {
-      this._departamentosService.getDepartamento( params['id'] ).subscribe(
-        (departamentos) => {
-          this.departamentoId = params['id'];
-          this.depa = departamentos;
-        }
-      );
-    })
-  }
-
-  ngOnInit(): void {
-  }
+    }
+    
+    ngOnInit(): void {
+      this.actRoute.params.subscribe( params => {
+        this._departamentosService.getDepartamento( params['id'] ).subscribe(
+          (departamentos) => {
+            this.departamentoId = params['id'];
+            this.depa = departamentos;
+          }
+        );
+      })
+    }
 
   reservarDepa() {
     this.router.navigate( ['/pago']);
