@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/services/login.service'
+import { LoginService } from 'src/app/services/login.service';
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
   selector: 'app-login',
@@ -12,9 +13,10 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   cargando = false;
+  UserLogin: String;
   
   constructor( private fb: FormBuilder,
-    private _loginService : LoginService ) {
+    private _loginService : LoginService, private router : Router,private cookies: CookieService ) {
     this.loginForm = fb.group({
       username: ['', [Validators.required, Validators.minLength(4)]],
       pass: ['', [Validators.required, Validators.minLength(4)]]
@@ -35,6 +37,8 @@ export class LoginComponent implements OnInit {
         (data:any) => {
           document.cookie = "username="+data["email"];
           document.cookie = "profile="+data["profile"];
+          localStorage.setItem('UserLogin', data.email);         
+          window.location.href = '/home';
         }
       );
       
