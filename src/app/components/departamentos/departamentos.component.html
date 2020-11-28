@@ -26,9 +26,9 @@
                     <td>{{departamento.precio}}</td>
                     <td>{{departamento.disponibilidad}}</td>
                     <!-- == 1 ? 'Disponible' : 'No Disponible' -->
-                    <td><a [routerLink]="['/departamento',i]" class="btn btn-outline-primary">Ver mas...</a></td>
+                    <td><a [routerLink]="['/departamento',departamento.idDepartmento]" class="btn btn-outline-primary">Ver mas...</a></td>
                     <td>
-                        <button (click)="verDepartamento(i)" type="button" class="btn btn-outline-primary btn-black"> 
+                        <button (click)="verDepartamento(departamento.idDepartmento)" type="button" class="btn btn-outline-primary btn-black"> 
                             Ver mas...
                         </button>
 

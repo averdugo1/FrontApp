@@ -22,6 +22,8 @@ export class DepartamentosComponent implements OnInit {
       (departamentos) => {
         console.log(departamentos);
         this.departamentos = departamentos
+      },(err) => {
+        console.log(err);
       }
     )
   }

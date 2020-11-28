@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ReservasService } from 'src/app/services/reservas.service';
+import { Departamento } from '../departamentos/departamentos';
 import { DepartamentoService } from '../departamentos/departamentos.service';
+
 
 @Component({
   selector: 'app-departamento',
@@ -10,18 +13,44 @@ import { DepartamentoService } from '../departamentos/departamentos.service';
 export class DepartamentoComponent implements OnInit {
 
   depa:any = {};
+  departamentoId: string;
+  //@Input()depart: Departamento;
 
   constructor( private actRoute: ActivatedRoute,
-              private _departamentosService: DepartamentoService ) { 
+              private _departamentosService: DepartamentoService,private reservasService: ReservasService ) { 
 
     this.actRoute.params.subscribe( params => {
       console.log( params['id'] );
-      this.depa = this._departamentosService.getDepartamento( params['id'] );
-      console.log(this.depa);
+      this.departamentoId =  params['id'];
+      this._departamentosService.getDepartamento( params['id'] ).subscribe(
+        (data:any)=> {
+          this.depa = data;
+          console.log(data);
+        }
+      );
+      //console.log(this.depa);
     })
   }
 
   ngOnInit(): void {
+  }
+
+  reservarDepa() {
+    var fechai = '2020/10/14'
+    var fechat = '2020/10/16'
+    var dias = '23'
+    var idPersona = '41'
+    var idDepartamento = this.departamentoId;
+
+    this.reservasService.Crear(fechai,fechat,idDepartamento,idPersona,dias).subscribe(
+      (data:any)=> {
+        console.log(data);
+      },
+      (err:any)=> {
+        console.log(err);
+      }
+    );
+    console.log('Ingreso de reserva');
   }
 
 }

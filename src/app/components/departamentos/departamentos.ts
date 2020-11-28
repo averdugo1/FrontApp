@@ -1,6 +1,6 @@
 export class Departamento {
 
-    constructor(public departamentoId: number,
+    constructor(public idDepartmento: number,
                 public nombre: string,
                 public direccion: string,
                 public region: string,
