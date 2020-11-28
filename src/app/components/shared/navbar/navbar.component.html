@@ -107,7 +107,7 @@
         </ul>
 
 
-        <ul class="navbar-nav mr-right" routerLinkActive="active">
+        <ul class="navbar-nav mr-right">
             <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="/login" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Login
@@ -120,13 +120,14 @@
                     </form>
                 </div>
             </li> -->
-            <li class="nav-item dropdown">
+            <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" [routerLink]="['login']">Login</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item" routerLinkActive="active">
+                <!-- <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Register
-                </a>
+                </a> -->
+                <a class="nav-link" [routerLink]="['registro']">Registro</a>
             </li>
         </ul>
     </div>

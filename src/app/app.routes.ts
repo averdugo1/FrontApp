@@ -7,6 +7,7 @@ import {DepartamentosComponent } from './components/departamentos/departamentos.
 import { AboutComponent } from './components/about/about.component';
 import { DepartamentoComponent } from './components/departamento/departamento.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegistroComponent } from './components/registro/registro.component'
 
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
@@ -14,6 +15,7 @@ const APP_ROUTES: Routes = [
     { path: 'about', component: AboutComponent },
     { path: 'departamento/:id', component: DepartamentoComponent},
     { path: 'login', component: LoginComponent},
+    { path: 'registro', component: RegistroComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 /* , { useHash:true } */
