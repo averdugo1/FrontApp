@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AppConfig } from 'src/app/app.config';
 import { Departamento } from './departamentos';
 
 @Injectable({
@@ -9,18 +10,18 @@ import { Departamento } from './departamentos';
 
 export class DepartamentoService {
 
-  private urlEndPoint:string = 'http://40.117.177.9:8080/api/v1/departamento/';
-  /* private urlEndPoint:string = 'http://localhost:8080/api/v1/departamento/'; */
+  private urlEndPoint = AppConfig.settings.api.url;
+  private apiURL = this.urlEndPoint + 'departamento/';
 
   constructor(private http: HttpClient) { }
 
   getDepartamentos(): Observable<Departamento[]> {
-    return this.http.get<Departamento[]>(this.urlEndPoint+'all');
+    return this.http.get<Departamento[]>(this.apiURL+'all');
     
   }
 
   getDepartamento( idx: string ): Observable<Departamento> {
-    return this.http.get<Departamento>(this.urlEndPoint+idx);
+    return this.http.get<Departamento>(this.apiURL+idx);
   }
   
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service'
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,6 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   cargando = false;
-
 
   constructor( private fb: FormBuilder ) {
     this.loginForm = fb.group({

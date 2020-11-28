@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AppConfig } from 'src/app/app.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CheckoutService {
 
-  //private urlEndPoint: string = 'http://40.117.177.9:8080/api/v1/checkout';
-  private urlEndPoint: string = 'http://localhost:8080/api/v1/checkout';
+  private urlEndPoint = AppConfig.settings.api.url;
+  private apiURL = this.urlEndPoint + 'checkout/';
 
   constructor(private http: HttpClient) { }
 
@@ -15,7 +16,7 @@ export class CheckoutService {
   crear(fecha) {
     let form = new FormData();
     form.append('fecha', fecha);
-    return this.http.post(this.urlEndPoint, form);
+    return this.http.post(this.apiURL, form);
   }
 
 

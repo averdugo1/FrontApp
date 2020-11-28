@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AppConfig } from 'src/app/app.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservasService {
 
-  //private urlEndPoint: string = 'http://40.117.177.9:8080/api/v1/reservas';
-  private urlEndPoint: string = 'http://localhost:8080/api/v1/reservas';
+  private urlEndPoint = AppConfig.settings.api.url;
+  private apiURL = this.urlEndPoint + 'reservas/';
 
   constructor(private http: HttpClient) { }
 

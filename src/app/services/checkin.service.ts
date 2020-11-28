@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AppConfig } from 'src/app/app.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CheckinService {
 
-  //private urlEndPoint: string = 'http://40.117.177.9:8080/api/v1/checkin';
-  private urlEndPoint: string = 'http://localhost:8080/api/v1/checkin';
+  private urlEndPoint = AppConfig.settings.api.url;
+  private apiURL = this.urlEndPoint + 'checkin/';
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +17,7 @@ export class CheckinService {
     let form = new FormData();
     form.append('fecha', fechainicio);
     form.append('pago', pago);
-    return this.http.post(this.urlEndPoint, form);
+    return this.http.post(this.apiURL, form);
   }
 
 

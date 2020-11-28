@@ -1,38 +1,5 @@
 <h1>{{depa.nombre}}<small>{{' '+ depa.ciudad}}</small></h1>
 <br>
-<!-- <h1>{{depa.ciudad}}</h1>
-<h1>{{depa.direccion}}</h1>
-<h1>{{depa.precio}}</h1>
-<br>
-<p>Fecha Ingreso</p>
-<input type="date" id="date_in">
-<p>Fecha Salida</p>
-<input type="date" id="date_out">
-<br>
-<button class="btn btn-sm btn-primary" (click)='reservarDepa()'>Agendar</button>
-
-<div>
-
-    <div class="col-md-4">
-        <a href="departamentos" class="btn btn-outline-danger btn-block">Regresar</a>
-
-    </div>
-
-    <div class="col-md-8">
-        <h3>Nombre departamento</h3>
-        <br>
-        <p>
-            bio del departamento
-        </p>
-        <div>
-            <img src="" alt="">
-        </div>
-
-
-    </div>
-
-</div> -->
-
 <div class="row animated fadeIn fast">
     <div class="col-md-4">
         <img *ngIf="depa.precio > 25000" class="img-fluid" src="../../../assets/recursos/img_depart_inside/inside1.jpg" [alt]="depa.region">
