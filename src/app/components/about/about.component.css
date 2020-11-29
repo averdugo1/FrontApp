@@ -1,0 +1,19 @@
+.altura-a-b {
+    padding: 100px 0;
+}
+
+.cabecera-somos {
+    padding: 150px 0 100px 0;
+    background-image: url('../../../assets/recursos/img_acercaDe/slider-interior.jpg');
+    background-position: center center;
+    background-size: cover;
+}
+
+.cabecera-somos h1,
+.cabecera-somos h2 {
+    color: black;
+}
+
+.text-blanco {
+    color: #fff;
+}

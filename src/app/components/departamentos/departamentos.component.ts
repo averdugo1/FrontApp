@@ -5,7 +5,8 @@ import { DepartamentoService } from './departamentos.service';
 
 @Component({
   selector: 'app-departamentos',
-  templateUrl: './departamentos.component.html'
+  templateUrl: './departamentos.component.html',
+  styleUrls: ['./departamentos.component.css']
 })
 export class DepartamentosComponent implements OnInit {
 

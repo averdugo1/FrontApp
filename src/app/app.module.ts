@@ -19,6 +19,8 @@ import { DepartamentoComponent } from './components/departamento/departamento.co
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { MainComponent } from './components/main/main.component';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -34,7 +36,9 @@ export function initializeApp(appConfig: AppConfig) {
     DepartamentoComponent,
     LoginComponent,
     RegistroComponent,
-    PaymentComponent
+    PaymentComponent,
+    FooterComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
