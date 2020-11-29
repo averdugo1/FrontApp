@@ -23,15 +23,9 @@
                         <td>{{departamento.region}}</td>
                         <td>{{departamento.ciudad}}</td>
                         <td>{{departamento.precio}}</td>
-                        <td>{{departamento.disponibilidad}}</td>
+                        <td>{{departamento.disponibilidad === 1 ? 'Disponible' : 'No Disponible'}}</td>
                         <!-- == 1 ? 'Disponible' : 'No Disponible' -->
                         <td><a [routerLink]="['/departamento', departamento.idDepartmento]" class="btn btn-outline-primary">Ver Detalle</a></td>
-                        <td>
-                            <button (click)="verDepartamento(departamento.idDepartmento)" type="button" class="btn btn-outline-primary btn-black"> 
-                                Ver mas 2...
-                            </button>
-
-                        </td>
                     </tr>
 
                 </tbody>
