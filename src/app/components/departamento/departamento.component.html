@@ -1,13 +1,14 @@
+<div *ngIf="isLoaded">
 <h1>{{depa.nombre}}<small>{{' '+ depa.ciudad}}</small></h1>
 <br>
 <div class="row animated fadeIn fast">
     <div class="col-md-4">
-        <img *ngIf="depa.precio > 25000" class="img-fluid" src="../../../assets/recursos/img_depart_inside/inside1.jpg" [alt]="depa.region">
+        <img *ngIf="depa.precio > 25000" class="img-fluid" src="/assets/recursos/img_depart_inside/inside1.jpg" [alt]="depa.region">
         <br><br>
         <a href="departamentos" class="btn btn-outline-danger btn-block">Regresar</a>
         <br><br>
         <!-- <button type="button" class="btn btn-sm btn-primary" (click)='reservarDepa()'>Agendar</button> -->
-        <button type="button" class="btn btn-primary btn-block" (click)='reservarDepa()'>Agendar</button>
+        <button *ngIf=usrTrue; type="button" class="btn btn-primary btn-block" (click)='reservarDepa()'>Agendar</button>
     </div>
 
     <div class="col-md-8">
@@ -17,10 +18,10 @@
             {{ depa.region }}
         </p>
         <div>
-            <img *ngIf="depa.ciudad == 'Santiago'" class="img-logo" src="../../../assets/recursos/img_depart/Depar1.jpg" alt="Santiago">
+            <img *ngIf="depa.ciudad == 'Santiago'" class="img-logo" src="/assets/recursos/img_depart/Depar1.jpg" alt="Santiago">
         </div>
 
-        <div>
+        <div *ngIf=usrTrue; >
             <br>
             <p>Fecha Ingreso</p>
             <input type="date" id="date_in">
@@ -33,4 +34,5 @@
 
 
 
+</div>
 </div>

@@ -9,19 +9,18 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  UserName: String;
-  UsrTrue: boolean;
+  userName: String;
+  usrTrue: boolean;
   
 
   constructor(private _loginService : LoginService, private cookies: CookieService, private router : Router) { 
-    this.UserName = "";
-    this.UserName = localStorage.getItem('UserLogin');
-    if(this.UserName == null){
-      this.UsrTrue = false;
+    this.userName = "";
+    this.userName = localStorage.getItem('UserLogin');
+    if(this.userName == null){
+      this.usrTrue = false;
     }
     else{
-      this.UsrTrue = true;
-      
+      this.usrTrue = true;      
     }
   }
 

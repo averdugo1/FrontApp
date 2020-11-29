@@ -16,6 +16,9 @@ import { EstadiaService } from 'src/app/services/estadia.service';
 export class DepartamentoComponent implements OnInit {
   depa:Departamento;
   departamentoId: string;
+  userName:string;
+  usrTrue:Boolean;
+  isLoaded:Boolean;
 
   constructor(private actRoute: ActivatedRoute,
     private _departamentosService: DepartamentoService,
@@ -25,6 +28,14 @@ export class DepartamentoComponent implements OnInit {
     private reservasService: ReservasService,
     private router:Router ) { 
 
+      this.userName = "";
+      this.userName = localStorage.getItem('UserLogin');
+      if(this.userName == null){
+        this.usrTrue = false;
+      }
+      else{
+        this.usrTrue = true;      
+      }      
     }
     
     ngOnInit(): void {
@@ -33,6 +44,7 @@ export class DepartamentoComponent implements OnInit {
           (departamentos) => {
             this.departamentoId = params['id'];
             this.depa = departamentos;
+            this.isLoaded = true;
           }
         );
       })
