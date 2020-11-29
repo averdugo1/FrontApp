@@ -1,0 +1,16 @@
+.altura-a-b {
+    padding: 100px 0;
+}
+
+.banner-video {
+    background-image: url('../../../assets/recursos/img_tourism/turism100.jpg');
+    padding: 200px 0;
+    position: relative;
+    text-align: center;
+}
+
+.banner-video img {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}

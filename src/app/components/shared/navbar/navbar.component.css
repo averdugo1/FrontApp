@@ -1,0 +1,28 @@
+/* .navbar-inner {
+    background: transparent;
+} */
+
+
+/* .logotipo {
+    height: auto;
+    width: auto;
+    max-height: 72px;
+    max-width: 250px;
+} */
+
+.sps--abv {
+    background: #16222A;
+    background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
+    background: linear-gradient(59deg, #3A6073, #16222A);
+    /* background-color: rgb(139, 137, 146); */
+    color: #000;
+}
+
+.sps--blw {
+    background-color: #2B2B2B;
+    color: #fff;
+}
+
+nav.sps--abv .logotipo {
+    width: 220px;
+}

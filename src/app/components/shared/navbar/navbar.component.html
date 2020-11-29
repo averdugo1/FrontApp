@@ -86,29 +86,38 @@
     </div>
 </div> -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"><img src="assets/recursos/logo_transparent.png" width="30" height="30" alt=""></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top sps sps--abv">
+    <!-- Centrar navbar con el div container -->
+    <div class="container">
+        <!-- <img class="logotipo" src="../../../../assets/recursos/img_logotipos/be_transparent.png" alt=""> -->
+        <a class="navbar-brand" href="#">Turismo Real</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
 
-            <!-- active -->
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['home']">Home</a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['departamentos']">Departamentos</a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['about']">About</a>
-            </li>
-        </ul>
+                <!-- active -->
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="['home']">Home</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="['departamentos']">Departamentos</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="['about']">Servicios</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="['about']">Acerca de</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="['about']">Contactanos</a>
+                </li>
+            </ul>
 
 
-        <ul class="navbar-nav mr-right">
-            <!-- <li class="nav-item dropdown">
+            <ul class="navbar-nav mr-right">
+                <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="/login" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Login
                 </a>
@@ -120,15 +129,16 @@
                     </form>
                 </div>
             </li> -->
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['login']">Login</a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <!-- <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="['login']">Login</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <!-- <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Register
                 </a> -->
-                <a class="nav-link" [routerLink]="['registro']">Registro</a>
-            </li>
-        </ul>
+                    <a class="nav-link" [routerLink]="['registro']">Registro</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>

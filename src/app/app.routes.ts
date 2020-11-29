@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PaymentComponent } from './components/payment/payment.component';
 
+
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'departamentos', component: DepartamentosComponent },

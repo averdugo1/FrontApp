@@ -1,0 +1,35 @@
+/* .carousel-inner img {
+    height: 800px;
+} */
+
+.carousel-item {
+    height: 100vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 40%;
+    bottom: 20px;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.btn-light {
+    color: #ffffff;
+    background-color: transparent;
+    border-color: #f8f9fa;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+}

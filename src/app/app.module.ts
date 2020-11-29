@@ -22,6 +22,8 @@ import { DepartamentoComponent } from './components/departamento/departamento.co
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { MainComponent } from './components/main/main.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { PaymentComponent } from './components/payment/payment.component';
     DepartamentoComponent,
     LoginComponent,
     RegistroComponent,
-    PaymentComponent
+    PaymentComponent,
+    FooterComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
