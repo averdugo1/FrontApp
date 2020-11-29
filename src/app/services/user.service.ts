@@ -5,17 +5,19 @@ import { AppConfig } from 'src/app/app.config';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class UserService {
 
   private urlEndPoint = AppConfig.settings.api.url;
-  private apiURL = this.urlEndPoint + 'login/';
+  private apiURL = this.urlEndPoint + 'user/';
 
   constructor(private http: HttpClient) { }
 
-  login(email, password){
+  create(username,  email, password){
     let form = new FormData();
     form.append('email', email);
     form.append('password', password);
+    form.append('username', username);
+    form.append('profileId', '3');
     return this.http.post(this.apiURL, form);
   }
 }

@@ -1,59 +1,53 @@
 <div class="limiter animated fadeIn fast">
     <div class="container-login100">
         <div class="wrap-login100 p-t-50 p-b-90">
-            <form class="login100-form validate-form flex-sb flex-w">
+            <form class="login100-form validate-form flex-sb flex-w" [formGroup]="registroForm">
 
                 <span class="login100-form-title p-b-51">
                         Crear nueva cuenta
                     </span>
 
                 <div class="wrap-input100 m-b-16">
-                    <input class="input100" type="text" name="username" placeholder="username">
+                    <input class="input100" type="text" formControlName="username" placeholder="Username">
 
                     <span class="focus-input100"></span>
                 </div>
 
                 <!-- <span class="text-danger">El correo es obligatorio</span> -->
                 <div class="wrap-input100 m-b-16">
-                    <input class="input100" type="text" name="email" placeholder="Email">
+                    <input class="input100" type="text" formControlName="email" placeholder="Email">
 
                     <span class="focus-input100"></span>
                 </div>
 
                 <!-- <span class="text-danger">La contraseña debe de ser más de 6 letras</span> -->
                 <div class="wrap-input100 m-b-16" data-validate="Password is required">
-                    <input class="input100" type="password" name="pass" placeholder="Password">
-                    <span class="focus-input100"></span>
-                </div>
-
-                <!-- <span class="text-danger">Perfil requerido</span> -->
-                <div class="wrap-input100 m-b-16" data-validate="Perfil is required">
-                    <input class="input100" type="text" name="perfil" placeholder="Perfil">
+                    <input class="input100" type="password" formControlName="pass" placeholder="Password">
                     <span class="focus-input100"></span>
                 </div>
 
                 <!-- <span class="text-danger">La contraseña debe de ser más de 6 letras</span> -->
                 <div class="wrap-input100 m-b-16" data-validate="Rut is required">
-                    <input class="input100" type="text" name="rut" placeholder="Rut">
+                    <input class="input100" type="text" formControlName="rut" placeholder="Rut">
                     <span class="focus-input100"></span>
                 </div>
 
                 <!-- <span class="text-danger">El nombre es obligatorio</span> -->
                 <div class="wrap-input100 m-b-16">
-                    <input class="input100" type="text" name="nombre" placeholder="Nombre">
+                    <input class="input100" type="text" formControlName="nombre" placeholder="Nombre">
 
                     <span class="focus-input100"></span>
                 </div>
 
                 <!-- <span class="text-danger">La contraseña debe de ser más de 6 letras</span> -->
                 <div class="wrap-input100 m-b-16" data-validate="Apellidos is required">
-                    <input class="input100" type="text" name="apellidos" placeholder="Apellidos">
+                    <input class="input100" type="text" formControlName="apellidos" placeholder="Apellidos">
                     <span class="focus-input100"></span>
                 </div>
 
                 <!-- <span class="text-danger">El telefono es requerido</span> -->
                 <div class="wrap-input100 m-b-16" data-validate="Apellidos is required">
-                    <input class="input100" type="text" name="telefonos" placeholder="Telefonos">
+                    <input class="input100" type="text" formControlName="telefonos" placeholder="Telefonos">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -75,7 +69,7 @@
                 </div>
 
                 <div class="container-login100-form-btn m-t-17">
-                    <button class="login100-form-btn" type="submit">
+                    <button class="login100-form-btn" (click)="registrarUsuario()">
                             Crear cuenta
                         </button>
                 </div>

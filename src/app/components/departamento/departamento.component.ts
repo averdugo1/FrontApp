@@ -25,50 +25,57 @@ export class DepartamentoComponent implements OnInit {
     private reservasService: ReservasService,
     private router:Router ) { 
 
-    this.actRoute.params.subscribe( params => {
-      this._departamentosService.getDepartamento( params['id'] ).subscribe(
-        (departamentos) => {
-          this.departamentoId = params['id'];
-          this.depa = departamentos;
-        }
-      );
-    })
-
-    this.depa = {
-      "idDepartmento": 1,
-      "nombre": "Postman - Test",
-      "direccion": "Postman 32",
-      "region": "Metropolitana",
-      "ciudad": "Santiago",
-      "precio": 26000,
-      "disponibilidad": false
     }
-  }
+    
+    ngOnInit(): void {
+      this.actRoute.params.subscribe( params => {
+        this._departamentosService.getDepartamento( params['id'] ).subscribe(
+          (departamentos) => {
+            this.departamentoId = params['id'];
+            this.depa = departamentos;
+          }
+        );
+      })
+    }
 
-  ngOnInit(): void {
-  }
-
-  reservarDepa() {
-    this.router.navigate( ['/pago']);
+  reservarDepa() {    
     var fechai = '2020/10/14';
     var fechat = '2020/10/16';
-    var dias = '23';
-    var idPersona = '41';
+    //var dias = '23';
+    var idPersona = '1';
     var idDepartamento = this.departamentoId;
     var pago = this.depa.precio * 0.1 ;
     // TODO: Crear Checkin, Checkout, Estadia y luego reserva
     this._checkinService.crear(fechai, pago).subscribe(
-      (data:any)=> {
-        console.log(data);
-      }
-    );
+      (data:any)=> {        
+        let idCheckin = data['idCheckin'];
+        console.log('Checkin ID', idCheckin);
+        
+        this._checkoutService.crear(fechat).subscribe(
+          (data:any)=> {
 
-    this.reservasService.Crear(fechai,fechat,idDepartamento,idPersona,dias).subscribe(
-      (data:any)=> {
-        console.log(data);
-      },
-      (err:any)=> {
-        console.log(err);
+            let idCheckout = data['idCheckout'];
+            console.log('Checkout ID', idCheckout);
+
+            this._estadiaService.crear(idCheckin, idCheckout).subscribe(
+              (data:any)=> {
+
+                let idEstadia = data['idEstadia'];
+                console.log('Estadia ID', idCheckout);
+
+                this.reservasService.Crear(fechai,fechat,idDepartamento,idPersona,idEstadia).subscribe(
+                  (data:any)=> {
+                    console.log('Reserva', data);
+                    this.router.navigate( ['/pago']);
+                  },
+                  (err:any)=> {
+                    console.log(err);
+                  }
+                );
+              }
+            );
+          }
+        );
       }
     );
     

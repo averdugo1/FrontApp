@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AppConfig } from 'src/app/app.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EstadiaService {
-
-  //private urlEndPoint: string = 'http://40.117.177.9:8080/api/v1/reservas';
-  private urlEndPoint: string = 'http://localhost:8080/api/v1/reservas';
+  
+  private urlEndPoint = AppConfig.settings.api.url;
+  private apiURL = this.urlEndPoint + 'estadias/';
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +17,7 @@ export class EstadiaService {
     let form = new FormData();
     form.append('checkinId', checkin);
     form.append('checkoutId', checkout);
-    return this.http.post(this.urlEndPoint, form);
+    return this.http.post(this.apiURL, form);
   }
 
 
