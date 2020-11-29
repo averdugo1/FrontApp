@@ -20,7 +20,7 @@ export class ReservasService {
     form.append('departamentoId', iddepa);
     form.append('personaId', idpersona);
     form.append('estadiaId', estadia);
-    return this.http.post(this.urlEndPoint, form);
+    return this.http.post(this.apiURL, form);
   }
 
 
