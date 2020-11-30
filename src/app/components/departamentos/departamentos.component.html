@@ -1,44 +1,59 @@
-<section class="altura-a-b">
-    <div class="card border-primary mb-3">
-        <div class="card-header">Departamentos</div>
-        <div class="card-body text-primary">
-            <h5 class="card-title">Listado de Departamentos</h5>
-
-            <table class="table table-bordered table-striped animated fadeIn fast">
-                <thead class="">
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Direccion</th>
-                        <th>Region</th>
-                        <th>Ciudad</th>
-                        <th>Precio</th>
-                        <th>Disponible</th>
-                    </tr>
-
-                </thead>
-                <tbody>
-                    <tr *ngFor="let departamento of departamentos; let i = index">
-                        <td>{{departamento.nombre}}</td>
-                        <td>{{departamento.direccion}}</td>
-                        <td>{{departamento.region}}</td>
-                        <td>{{departamento.ciudad}}</td>
-                        <td>{{departamento.precio}}</td>
-                        <td>{{departamento.disponibilidad}}</td>
-                        <!-- == 1 ? 'Disponible' : 'No Disponible' -->
-                        <td><a [routerLink]="['/departamento', departamento.idDepartmento]" class="btn btn-outline-primary">Ver Detalle</a></td>
-                        <td>
-                            <button (click)="verDepartamento(departamento.idDepartmento)" type="button" class="btn btn-outline-primary btn-black"> 
-                                Ver mas 2...
-                            </button>
-
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
-
-
+<section class="cabecera-departamentos text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-white">Departamentos</h1>
+            </div>
         </div>
     </div>
+</section>
+
+
+<section class="altura-a-b">
+    <div class="container">
+        <div class="card border-primary mb-3">
+            <div class="card-body text-primary">
+                <h5 class="card-title">Listado de Departamentos</h5>
+
+                <table class="table table-bordered table-striped animated fadeIn fast">
+                    <thead class="">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Direccion</th>
+                            <th>Region</th>
+                            <th>Ciudad</th>
+                            <th>Precio</th>
+                            <th>Disponible</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let departamento of departamentos; let i = index">
+                            <td>{{departamento.nombre}}</td>
+                            <td>{{departamento.direccion}}</td>
+                            <td>{{departamento.region}}</td>
+                            <td>{{departamento.ciudad}}</td>
+                            <td>{{departamento.precio}}</td>
+                            <td>{{departamento.disponibilidad}}</td>
+                            <!-- == 1 ? 'Disponible' : 'No Disponible' -->
+                            <td><a [routerLink]="['/departamento', departamento.idDepartmento]" class="btn btn-outline-primary">Ver Detalle</a></td>
+                            <td>
+                                <button (click)="verDepartamento(departamento.idDepartmento)" type="button" class="btn btn-outline-primary btn-black"> 
+                                    Ver mas 2...
+                                </button>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
 
 </section>

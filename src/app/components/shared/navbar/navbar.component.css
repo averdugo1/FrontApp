@@ -11,11 +11,15 @@
 } */
 
 .sps--abv {
-    background: #16222A;
+    /*Color opcional*/
+    /*     background: #16222A;
     background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
-    background: linear-gradient(59deg, #3A6073, #16222A);
-    /* background-color: rgb(139, 137, 146); */
-    color: #000;
+    background: linear-gradient(59deg, #3A6073, #16222A); */
+    /* background-color: transparent; */
+    /*whichever you want*/
+    background-color: #000;
+    opacity: 1.1;
+    filter: (opacity=50);
 }
 
 .sps--blw {
@@ -26,3 +30,11 @@
 nav.sps--abv .logotipo {
     width: 220px;
 }
+
+
+/* #nav1 {
+    background-color: #F00;
+    whichever you want
+    opacity: 0.5;
+    filter: (opacity=50);
+} */
