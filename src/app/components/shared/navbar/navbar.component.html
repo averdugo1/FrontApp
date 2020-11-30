@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top sps sps--abv">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top sps sps--abv" id="nav1">
     <!-- Centrar navbar con el div container -->
     <div class="container">
         <!-- <img class="logotipo" src="../../../../assets/recursos/img_logotipos/be_transparent.png" alt=""> -->
@@ -34,7 +34,7 @@
                 <li *ngIf=usrTrue; class="nav-item" routerLinkActive="active">
                     <a class="nav-link" (click)="logOut()">LogOut</a>
                 </li>
-    
+
                 <li *ngIf=!usrTrue; class="nav-item" routerLinkActive="active">
                     <a class="nav-link" [routerLink]="['login']">Login</a>
                 </li>

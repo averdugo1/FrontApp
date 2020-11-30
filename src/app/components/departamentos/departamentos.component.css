@@ -1,3 +1,19 @@
 .altura-a-b {
-    padding: 100px 0;
+    padding: 80px 0;
+}
+
+.cabecera-departamentos {
+    padding: 150px 0 100px 0;
+    background-image: url('../../../assets/recursos/img_cabeceras/vista_depto.jpg');
+    background-position: center center;
+    background-size: cover;
+}
+
+.cabecera-departamentos h1,
+.cabecera-departamentos h2 {
+    color: #fff;
+}
+
+.text-blanco {
+    color: #fff;
 }
