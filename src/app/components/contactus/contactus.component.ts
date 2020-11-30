@@ -25,6 +25,8 @@ export class ContactusComponent implements OnInit {
     const message = `My name is ${this.name}`;
     alert('i am submit' + message);
 
+    
+
   }
 
 

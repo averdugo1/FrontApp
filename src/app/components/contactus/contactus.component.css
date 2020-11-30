@@ -1,0 +1,82 @@
+.altura-a-b {
+    padding: 80px 0;
+}
+
+.cabecera-contact {
+    padding: 150px 0 100px 0;
+    background-image: url('../../../assets/recursos/img_contactus/contactHead.jpg');
+    background-position: center center;
+    background-size: cover;
+}
+
+.cabecera-contact h1,
+.cabecera-contact h2 {
+    color: #fff;
+}
+
+
+/* .text-blanco {
+    color: #fff;
+} */
+
+
+/* Estilos start */
+
+body {
+    color: #ffffff
+}
+
+.box {
+    margin: auto
+}
+
+.card {
+    padding: 8%;
+    padding-top: 35px;
+    margin-top: 60px;
+    margin-bottom: 80px
+}
+
+textarea[name="message"] {
+    resize: none
+}
+
+#e-mail {
+    height: 45px
+}
+
+#message {
+    height: 120px
+}
+
+input.input-box,
+textarea.input-box {
+    background-color: #616161;
+    border: #616161;
+    color: #BDBDBD
+}
+
+input.input-box:focus,
+textarea.input-box:focus {
+    background-color: #000000;
+    color: #BDBDBD
+}
+
+.rm-border:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none
+}
+
+form .form-control::-webkit-input-placeholder {
+    color: #9E9E9E
+}
+
+::-moz-placeholder {
+    color: #9E9E9E !important
+}
+
+input.btn-purple {
+    background-color: #5C6BC0;
+    color: #ffffff
+}

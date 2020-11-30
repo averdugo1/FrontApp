@@ -9,11 +9,11 @@
 </section>
 
 
-<section class="altura-a-b">
+<section class="altura-a-b fadeIn fast">
     <div class="container">
         <div class="card border-primary mb-3">
             <div class="card-body text-primary">
-                <h5 class="card-title">Listado de Departamentos</h5>
+                <h5 class="card-title fadeIn fast">Listado de Departamentos</h5>
 
                 <table class="table table-bordered table-striped animated fadeIn fast">
                     <thead class="">
@@ -28,7 +28,7 @@
 
                     </thead>
                     <tbody>
-                        <tr *ngFor="let departamento of departamentos; let i = index">
+                        <tr class="fadeIn fast" *ngFor="let departamento of departamentos; let i = index">
                             <td>{{departamento.nombre}}</td>
                             <td>{{departamento.direccion}}</td>
                             <td>{{departamento.region}}</td>
