@@ -21,6 +21,8 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { MainComponent } from './components/main/main.component';
+import { ContactusComponent } from './components/contactus/contactus.component';
+import { ServiciosComponent } from './components/servicios/servicios.component';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -38,7 +40,9 @@ export function initializeApp(appConfig: AppConfig) {
     RegistroComponent,
     PaymentComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    ContactusComponent,
+    ServiciosComponent
   ],
   imports: [
     BrowserModule,
