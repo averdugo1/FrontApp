@@ -72,6 +72,11 @@ export class CustomDateParserFormatter extends NgbDateParserFormatter {
 })
 
 export class DepartamentoComponent implements OnInit {
+
+  model1: string;
+  model2: string;
+
+
   depa:Departamento;
   departamentoId: string;
   userName:string;
@@ -84,7 +89,9 @@ export class DepartamentoComponent implements OnInit {
     private _checkoutService: CheckoutService,
     private _estadiaService: EstadiaService,
     private reservasService: ReservasService,
-    private router:Router ) { 
+    private router:Router,
+    private ngbCalendar: NgbCalendar, 
+    private dateAdapter: NgbDateAdapter<string> ) { 
 
       this.userName = "";
       this.userName = localStorage.getItem('UserLogin');
@@ -150,6 +157,10 @@ export class DepartamentoComponent implements OnInit {
     );
     
     console.log('Ingreso de reserva');
+  }
+
+  get today() {
+    return this.dateAdapter.toModel(this.ngbCalendar.getToday())!;
   }
 
 }
