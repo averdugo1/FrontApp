@@ -4,7 +4,7 @@
 
 .cabecera-departamentos {
     padding: 150px 0 100px 0;
-    background-image: url('../../../assets/recursos/img_cabeceras/vista_depto.jpg');
+    background-image: url('/assets/recursos/img_cabeceras/vista_depto.jpg');
     background-position: center center;
     background-size: cover;
 }

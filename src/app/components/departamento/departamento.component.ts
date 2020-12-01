@@ -5,9 +5,11 @@ import {NgbCalendar, NgbDateAdapter, NgbDateParserFormatter, NgbDateStruct} from
 import { Departamento } from '../departamentos/departamentos';
 import { DepartamentoService } from '../departamentos/departamentos.service';
 import { ReservasService } from 'src/app/services/reservas.service';
+import { PersonaService } from 'src/app/services/persona.service';
 import { CheckinService } from 'src/app/services/checkin.service';
 import { CheckoutService } from 'src/app/services/checkout.service';
 import { EstadiaService } from 'src/app/services/estadia.service';
+import { PersonaModel } from 'src/app/models/persona.model';
 import * as moment from 'moment';
 
 
@@ -77,16 +79,17 @@ export class DepartamentoComponent implements OnInit {
 
   model1: string;
   model2: string;
-
-
   depa:Departamento;
   departamentoId: string;
   userName:string;
+  userId:string;
   usrTrue:Boolean;
   isLoaded:Boolean;
   dateForm: FormGroup;
   date_in: string;
   date_out: string;
+
+  personas: PersonaModel[];
 
   constructor(
     private fb: FormBuilder,
@@ -96,6 +99,7 @@ export class DepartamentoComponent implements OnInit {
     private _checkoutService: CheckoutService,
     private _estadiaService: EstadiaService,
     private reservasService: ReservasService,
+    private _personaService: PersonaService,
     private router:Router,
     private ngbCalendar: NgbCalendar, 
     private dateAdapter: NgbDateAdapter<string> ) { 
@@ -107,6 +111,7 @@ export class DepartamentoComponent implements OnInit {
 
       this.userName = "";
       this.userName = localStorage.getItem('UserLogin');
+      this.userId = localStorage.getItem('userId');
       if(this.userName == null){
         this.usrTrue = false;
       } else {
@@ -130,11 +135,18 @@ export class DepartamentoComponent implements OnInit {
     var fechai;
     var fechat;
     var idPersona = '1';
+    this._personaService.getAll().subscribe(
+      (data)=>{
+        this.personas = data;
+        console.log('Personas', data);
+        idPersona = this.personas.filter( p => p.users.toString() === this.userId )[0].idPersona.toString();
+      }
+    );
     var idDepartamento = this.departamentoId;
     var pago = this.depa.precio * 0.1 ;
     // TODO: Crear Checkin, Checkout, Estadia y luego reserva
     console.log('Ingreso de reserva');
-    
+    console.log(this.date_in, this.date_out);
     fechai = moment(this.date_in).format('YYYY/MM/DD');
     fechat = moment(this.date_out).format('YYYY/MM/DD');
     console.log(fechai, fechat);

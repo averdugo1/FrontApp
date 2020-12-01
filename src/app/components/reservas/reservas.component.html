@@ -1,1 +1,46 @@
-<p>reservas works!</p>
+<section class="cabecera-departamentos text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-white">Mis Reservas</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="altura-a-b fadeIn fast">
+    <div class="container">
+        <div class="card border-primary mb-3">
+            <div class="card-body text-primary">
+                <h5 class="card-title fadeIn fast">Listado de Reservas</h5>
+
+                <table class="table table-bordered table-dark animated fadeIn fast">
+                    <thead class="">
+                        <tr>
+                            <th>Fecha Entrada</th>
+                            <th>Fecha Salida</th>
+                            <th>Nombre</th>
+                            <th>Direccion</th>
+                            <th>Precio</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr class="fadeIn fast" *ngFor="let jsn of json; let i = index">
+                            <td>{{jsn.FECHA_ENTRADA}}</td>
+                            <td>{{jsn.FECHA_SALIDA}}</td>
+                            <td>{{jsn.NOMBRE}}</td>
+                            <td>{{jsn.DIRECCION}}</td>
+                            <td>{{jsn.PRECIO}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
