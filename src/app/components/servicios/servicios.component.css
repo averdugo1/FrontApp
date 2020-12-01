@@ -1,10 +1,14 @@
+/* Estilos Main/Body servicios */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins|Ubuntu&display=swap');
+
 .altura-a-b {
     padding: 80px 0;
 }
 
 .cabecera-servicios {
     padding: 150px 0 100px 0;
-    background-image: url('../../../assets/recursos/img_servicios/serviciosHead.jpg');
+    background-image: url('/assets/recursos/img_servicios/serviciosHead.jpg');
     background-position: center center;
     background-size: cover;
 }
@@ -19,9 +23,6 @@
 }
 
 
-/* Estilos Main/Body servicios */
-
-@import url('https://fonts.googleapis.com/css?family=Poppins|Ubuntu&display=swap');
 
 /* * {
     box-sizing: border-box;

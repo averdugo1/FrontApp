@@ -38,10 +38,10 @@ export class RegistroComponent implements OnInit {
       let username = this.registroForm.get("username").value;
       let email = this.registroForm.get("email").value;
       let pass = this.registroForm.get("pass").value;
-      let rut = this.registroForm.get("pass").value;
-      let nombre = this.registroForm.get("pass").value;
-      let apellidos = this.registroForm.get("pass").value;
-      let telefono = this.registroForm.get("pass").value;      
+      let rut = this.registroForm.get("rut").value;
+      let nombre = this.registroForm.get("nombre").value;
+      let apellidos = this.registroForm.get("apellidos").value;
+      let telefono = this.registroForm.get("telefonos").value;      
       this._userService.create(username, email, pass).subscribe(
         (data:any) => {
           console.log('Created user', data);

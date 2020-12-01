@@ -1,12 +1,14 @@
 import { Component, Input, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {NgbCalendar, NgbDateAdapter, NgbDateParserFormatter, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import { Departamento } from '../departamentos/departamentos';
 import { DepartamentoService } from '../departamentos/departamentos.service';
 import { ReservasService } from 'src/app/services/reservas.service';
 import { CheckinService } from 'src/app/services/checkin.service';
 import { CheckoutService } from 'src/app/services/checkout.service';
 import { EstadiaService } from 'src/app/services/estadia.service';
-import {NgbCalendar, NgbDateAdapter, NgbDateParserFormatter, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import * as moment from 'moment';
 
 
 /**
@@ -82,8 +84,13 @@ export class DepartamentoComponent implements OnInit {
   userName:string;
   usrTrue:Boolean;
   isLoaded:Boolean;
+  dateForm: FormGroup;
+  date_in: string;
+  date_out: string;
 
-  constructor(private actRoute: ActivatedRoute,
+  constructor(
+    private fb: FormBuilder,
+    private actRoute: ActivatedRoute,
     private _departamentosService: DepartamentoService,
     private _checkinService: CheckinService,
     private _checkoutService: CheckoutService,
@@ -93,12 +100,16 @@ export class DepartamentoComponent implements OnInit {
     private ngbCalendar: NgbCalendar, 
     private dateAdapter: NgbDateAdapter<string> ) { 
 
+      this.dateForm = fb.group({
+        date_in: ['', [Validators.required]],
+        date_out: ['', [Validators.required]]
+      })
+
       this.userName = "";
       this.userName = localStorage.getItem('UserLogin');
       if(this.userName == null){
         this.usrTrue = false;
-      }
-      else{
+      } else {
         this.usrTrue = true;      
       }      
     }
@@ -116,51 +127,52 @@ export class DepartamentoComponent implements OnInit {
     }
 
   reservarDepa() {    
-    var fechai = '2020/10/14';
-    var fechat = '2020/10/16';
-    //var dias = '23';
+    var fechai;
+    var fechat;
     var idPersona = '1';
     var idDepartamento = this.departamentoId;
     var pago = this.depa.precio * 0.1 ;
     // TODO: Crear Checkin, Checkout, Estadia y luego reserva
-    this._checkinService.crear(fechai, pago).subscribe(
-      (data:any)=> {        
-        let idCheckin = data['idCheckin'];
-        console.log('Checkin ID', idCheckin);
-        
-        this._checkoutService.crear(fechat).subscribe(
-          (data:any)=> {
-
-            let idCheckout = data['idCheckout'];
-            console.log('Checkout ID', idCheckout);
-
-            this._estadiaService.crear(idCheckin, idCheckout).subscribe(
-              (data:any)=> {
-
-                let idEstadia = data['idEstadia'];
-                console.log('Estadia ID', idCheckout);
-
-                this.reservasService.Crear(fechai,fechat,idDepartamento,idPersona,idEstadia).subscribe(
-                  (data:any)=> {
-                    console.log('Reserva', data);
-                    this.router.navigate( ['/pago']);
-                  },
-                  (err:any)=> {
-                    console.log(err);
-                  }
-                );
-              }
-            );
-          }
-        );
-      }
-    );
-    
     console.log('Ingreso de reserva');
-  }
+    
+    fechai = moment(this.date_in).format('YYYY/MM/DD');
+    fechat = moment(this.date_out).format('YYYY/MM/DD');
+    console.log(fechai, fechat);
+    this._checkinService.crear(fechai, pago).subscribe(
+        (data:any)=> {        
+          let idCheckin = data['idCheckin'];
+          console.log('Checkin ID', idCheckin);
+          
+          this._checkoutService.crear(fechat).subscribe(
+            (data:any)=> {
+  
+              let idCheckout = data['idCheckout'];
+              console.log('Checkout ID', idCheckout);
+  
+              this._estadiaService.crear(idCheckin, idCheckout).subscribe(
+                (data:any)=> {
+  
+                  let idEstadia = data['idEstadia'];
+                  console.log('Estadia ID', idCheckout);
+  
+                  this.reservasService.Crear(fechai,fechat,idDepartamento,idPersona,idEstadia).subscribe(
+                    (data:any)=> {
+                      console.log('Reserva', data);
+                      this.router.navigate( ['/pago']);
+                    },
+                    (err:any)=> {
+                      console.log(err);
+                    }
+                  );
+                }
+              );
+            }
+          );
+        });
+    }    
 
-  get today() {
-    return this.dateAdapter.toModel(this.ngbCalendar.getToday())!;
+    get today() {
+      return this.dateAdapter.toModel(this.ngbCalendar.getToday())!;
   }
 
 }

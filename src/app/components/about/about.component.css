@@ -4,7 +4,7 @@
 
 .cabecera-somos {
     padding: 150px 0 100px 0;
-    background-image: url('../../../assets/recursos/img_acercaDe/slider-interior.jpg');
+    background-image: url('/assets/recursos/img_acercaDe/slider-interior.jpg');
     background-position: center center;
     background-size: cover;
 }
