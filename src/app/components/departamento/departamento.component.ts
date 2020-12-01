@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {NgbCalendar, NgbDateAdapter, NgbDateParserFormatter, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import { Departamento } from '../departamentos/departamentos';
 import { DepartamentoService } from '../departamentos/departamentos.service';
 import { ReservasService } from 'src/app/services/reservas.service';
@@ -9,10 +10,67 @@ import { CheckoutService } from 'src/app/services/checkout.service';
 import { EstadiaService } from 'src/app/services/estadia.service';
 import * as moment from 'moment';
 
+
+/**
+ * This Service handles how the date is represented in scripts i.e. ngModel.
+ */
+@Injectable()
+export class CustomAdapter extends NgbDateAdapter<string> {
+
+  readonly DELIMITER = '-';
+
+  fromModel(value: string | null): NgbDateStruct | null {
+    if (value) {
+      let date = value.split(this.DELIMITER);
+      return {
+        day : parseInt(date[0], 10),
+        month : parseInt(date[1], 10),
+        year : parseInt(date[2], 10)
+      };
+    }
+    return null;
+  }
+
+  toModel(date: NgbDateStruct | null): string | null {
+    return date ? date.day + this.DELIMITER + date.month + this.DELIMITER + date.year : null;
+  }
+}
+
+
+/**
+ * This Service handles how the date is rendered and parsed from keyboard i.e. in the bound input field.
+ */
+@Injectable()
+export class CustomDateParserFormatter extends NgbDateParserFormatter {
+
+  readonly DELIMITER = '/';
+
+  parse(value: string): NgbDateStruct | null {
+    if (value) {
+      let date = value.split(this.DELIMITER);
+      return {
+        day : parseInt(date[0], 10),
+        month : parseInt(date[1], 10),
+        year : parseInt(date[2], 10)
+      };
+    }
+    return null;
+  }
+
+  format(date: NgbDateStruct | null): string {
+    return date ? date.day + this.DELIMITER + date.month + this.DELIMITER + date.year : '';
+  }
+}
+
 @Component({
   selector: 'app-departamento',
   templateUrl: './departamento.component.html',
-  styleUrls: ['./departamento.component.css']
+  styleUrls: ['./departamento.component.css'], 
+
+  providers: [
+    {provide: NgbDateAdapter, useClass: CustomAdapter},
+    {provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter}
+  ]
 })
 
 export class DepartamentoComponent implements OnInit {
@@ -22,6 +80,8 @@ export class DepartamentoComponent implements OnInit {
   usrTrue:Boolean;
   isLoaded:Boolean;
   dateForm: FormGroup;
+  date_in: string;
+  date_out: string;
 
   constructor(
     private fb: FormBuilder,
@@ -62,18 +122,16 @@ export class DepartamentoComponent implements OnInit {
   reservarDepa() {    
     var fechai;
     var fechat;
-    var idPersona = '41';
+    var idPersona = '1';
     var idDepartamento = this.departamentoId;
     var pago = this.depa.precio * 0.1 ;
     // TODO: Crear Checkin, Checkout, Estadia y luego reserva
     console.log('Ingreso de reserva');
-
-    if(this.dateForm.valid){
-      console.log("It's valid!");
-      fechai = moment(this.dateForm.get('date_in').value).format('YYYY/MM/DD');
-      fechat = moment(this.dateForm.get('date_out').value).format('YYYY/MM/DD');
-      console.log(fechai, fechat);
-      this._checkinService.crear(fechai, pago).subscribe(
+    
+    fechai = moment(this.date_in).format('YYYY/MM/DD');
+    fechat = moment(this.date_out).format('YYYY/MM/DD');
+    console.log(fechai, fechat);
+    this._checkinService.crear(fechai, pago).subscribe(
         (data:any)=> {        
           let idCheckin = data['idCheckin'];
           console.log('Checkin ID', idCheckin);
@@ -103,9 +161,7 @@ export class DepartamentoComponent implements OnInit {
               );
             }
           );
-        }
-      );
+          });
     }    
   }
 
-}

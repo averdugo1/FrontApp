@@ -1,41 +1,62 @@
-<div class="container altura-a-b" *ngIf="isLoaded">
-    <h1>{{depa.nombre}}<small>{{' '+ depa.ciudad}}</small></h1>
-    <br>
-    <div class="row animated fadeIn fast">
-        <div class="col-md-6">
-            <img *ngIf="depa.precio > 25000" class="img-fluid" src="/assets/recursos/img_depart_inside/inside1.jpg" [alt]="depa.region">
-            <br><br>
-            <a href="departamentos" class="btn btn-outline-danger btn-block">Regresar</a>
-            <br><br>
-            <!-- <button type="button" class="btn btn-sm btn-primary" (click)='reservarDepa()'>Agendar</button> -->
-            <button *ngIf="usrTrue && depa.disponibilidad === 1 " type="button" class="btn btn-primary btn-block" (click)='reservarDepa()'>Agendar</button>
-        </div>
-
-        <div class="col-md-6">
-            <h3>{{ depa.nombre }}</h3>
+<section class="altura-a-b" id="gallery">
+    <div class="container">
+        <div class="container" *ngIf="isLoaded">
+            <h1>{{depa.nombre}}<small>{{' '+ depa.ciudad}}</small></h1>
             <br>
-            <p>
-                {{ depa.region }}
-            </p>
-            <div>
-                <img *ngIf="depa.ciudad == 'Santiago'" class="img-logo" src="/assets/recursos/img_depart/Depar1.jpg" alt="Santiago">
-            </div>
-
-            <form [formGroup]="dateForm" *ngIf="usrTrue && depa.disponibilidad === 1 ">
-                <div>
-                    <br>
-                    <p>Fecha Ingreso</p>
-                    <input type="date" formControlName="date_in" id="date_in">
-                    <p>Fecha Salida</p>
-                    <input type="date" formControlName="date_out" id="date_out">
-                    <br>
+            <div class="row animated fadeIn fast">
+                <div class="col-md-6">
+                    <img *ngIf="depa.precio > 25000" class="img-fluid" src="/assets/recursos/img_depart_inside/inside1.jpg" [alt]="depa.region">
+                    <br><br>
+                    <a href="departamentos" class="btn btn-outline-danger btn-block">Regresar</a>
+                    <br><br>
+                    <!-- <button type="button" class="btn btn-sm btn-primary" (click)='reservarDepa()'>Agendar</button> -->
+                    <button *ngIf="usrTrue && depa.disponibilidad === 1;"  type="button" class="btn btn-primary btn-block" (click)='reservarDepa()'>Agendar</button>
                 </div>
 
-            </form>
+                <div class="col-md-6">
+                    <h3>{{ depa.nombre }}</h3>
+                    <br>
+                    <p>
+                        {{ depa.region }}
+                    </p>
+                    <div>
+                        <img *ngIf="depa.ciudad == 'Santiago'" class="img-logo" src="/assets/recursos/img_depart/Depar1.jpg" alt="Santiago">
+                    </div>
 
+                    <div *ngIf="usrTrue && depa.disponibilidad === 1;">
+                        
+                        <form class="form-inline" [formGroup]="dateForm">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <p>Fecha Ingreso</p>
+                                    <!-- input class="form-control" placeholder="dd/mm/yyyy" name="d2" #c2="ngModel" [(ngModel)]="model2" formControlName="date_in" ngbDatepicker #d2="ngbDatepicker" -->
+                                    <input class="form-control" placeholder="dd/mm/yyyy" name="d1" #c1="ngModel" [(ngModel)]="date_in" ngbDatepicker #d1="ngbDatepicker" >
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"></button>
+                                    </div>
+                                
+                                </div>
+                                <br>                                
+                                <div class="input-group">
+                                    <p>Fecha Salida</p>
+                                    <!-- input class="form-control" placeholder="dd/mm/yyyy" name="d2" #c2="ngModel" [(ngModel)]="model2"  formControlName="date_out" ngbDatepicker #d2="ngbDatepicker" -->
+                                    <input class="form-control" placeholder="dd/mm/yyyy" name="d2" #c2="ngModel" [(ngModel)]="date_out" ngbDatepicker #d2="ngbDatepicker" >
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <hr/>
+                        <button class="btn btn-sm btn-outline-primary" (click)="model2 = today">Select Today</button>
+                        <hr/>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
 
-
-
     </div>
-</div>
+</section>
