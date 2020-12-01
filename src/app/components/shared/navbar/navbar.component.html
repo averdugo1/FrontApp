@@ -17,6 +17,9 @@
                     <a class="nav-link" [routerLink]="['departamentos']">Departamentos</a>
                 </li>
                 <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="['departamentos']">Mis Reservas</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link" [routerLink]="['servicios']">Servicios</a>
                 </li>
                 <li class="nav-item" routerLinkActive="active">
@@ -28,8 +31,7 @@
             </ul>
 
             <ul class="navbar-nav mr-right">
-                <li *ngIf=usrTrue; class="nav-item" routerLinkActive="active">
-                    <a class="nav-link">{{userName}}</a>
+                <li *ngIf=usrTrue; class="nav-item" routerLinkActive="active"><a class="nav-link">Bienvenido {{userName2}}</a>
                 </li>
                 <li *ngIf=usrTrue; class="nav-item" routerLinkActive="active">
                     <a class="nav-link" (click)="logOut()">LogOut</a>

@@ -24,6 +24,7 @@ import { MainComponent } from './components/main/main.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReservasComponent } from './components/reservas/reservas.component';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -43,7 +44,8 @@ export function initializeApp(appConfig: AppConfig) {
     FooterComponent,
     MainComponent,
     ContactusComponent,
-    ServiciosComponent
+    ServiciosComponent,
+    ReservasComponent
   ],
   imports: [
     BrowserModule,

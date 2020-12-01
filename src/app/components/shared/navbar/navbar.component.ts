@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   userName: String;
+  userId: String;
+  userName2: String;
   usrTrue: boolean;
   
 
@@ -21,7 +23,9 @@ export class NavbarComponent implements OnInit {
       this.usrTrue = false;
     }
     else{
-      this.usrTrue = true;      
+      this.usrTrue = true;   
+      this.userId = localStorage.getItem('userId');
+      this.userName2 = localStorage.getItem('username');
     }
   }
 
@@ -31,6 +35,7 @@ export class NavbarComponent implements OnInit {
   
   logOut(){
     localStorage.removeItem('UserLogin');
+    localStorage.clear();
     //this.router.navigateByUrl('/home');
     window.location.href = '/home';
     console.log("hola");

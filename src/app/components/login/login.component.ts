@@ -37,6 +37,8 @@ export class LoginComponent implements OnInit {
         (data:any) => {
           document.cookie = "username="+data["email"];
           document.cookie = "profile="+data["profile"];
+          localStorage.setItem('userId', data.userId);
+          localStorage.setItem('username', data.username);
           localStorage.setItem('UserLogin', data.email);         
           window.location.href = '/home';
         }
