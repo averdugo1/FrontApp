@@ -1,38 +1,63 @@
-<div class="container altura-a-b" *ngIf="isLoaded">
-    <h1>{{depa.nombre}}<small>{{' '+ depa.ciudad}}</small></h1>
-    <br>
-    <div class="row animated fadeIn fast">
-        <div class="col-md-6">
-            <img *ngIf="depa.precio > 25000" class="img-fluid" src="/assets/recursos/img_depart_inside/inside1.jpg" [alt]="depa.region">
-            <br><br>
-            <a href="departamentos" class="btn btn-outline-danger btn-block">Regresar</a>
-            <br><br>
-            <!-- <button type="button" class="btn btn-sm btn-primary" (click)='reservarDepa()'>Agendar</button> -->
-            <button *ngIf=usrTrue; type="button" class="btn btn-primary btn-block" (click)='reservarDepa()'>Agendar</button>
-        </div>
-
-        <div class="col-md-6">
-            <h3>{{ depa.nombre }}</h3>
+<section class="altura-a-b" id="gallery">
+    <div class="container">
+        <div class="container" *ngIf="isLoaded">
+            <h1>{{depa.nombre}}<small>{{' '+ depa.ciudad}}</small></h1>
             <br>
-            <p>
-                {{ depa.region }}
-            </p>
-            <div>
-                <img *ngIf="depa.ciudad == 'Santiago'" class="img-logo" src="/assets/recursos/img_depart/Depar1.jpg" alt="Santiago">
-            </div>
+            <div class="row animated fadeIn fast">
+                <div class="col-md-6">
+                    <img *ngIf="depa.precio > 25000" class="img-fluid" src="/assets/recursos/img_depart_inside/inside1.jpg" [alt]="depa.region">
+                    <br><br>
+                    <a href="departamentos" class="btn btn-outline-danger btn-block">Regresar</a>
+                    <br><br>
+                    <!-- <button type="button" class="btn btn-sm btn-primary" (click)='reservarDepa()'>Agendar</button> -->
+                    <button *ngIf=usrTrue; type="button" class="btn btn-primary btn-block" (click)='reservarDepa()'>Agendar</button>
+                </div>
 
-            <div *ngIf=usrTrue;>
-                <br>
-                <p>Fecha Ingreso</p>
-                <input type="date" id="date_in">
-                <p>Fecha Salida</p>
-                <input type="date" id="date_out">
-                <br>
-            </div>
+                <div class="col-md-6">
+                    <h3>{{ depa.nombre }}</h3>
+                    <br>
+                    <p>
+                        {{ depa.region }}
+                    </p>
+                    <div>
+                        <img *ngIf="depa.ciudad == 'Santiago'" class="img-logo" src="/assets/recursos/img_depart/Depar1.jpg" alt="Santiago">
+                    </div>
 
+                    <div *ngIf=usrTrue;>
+                        <br>
+                        <input type="text" ngbDatepicker #d="ngbDatepicker" />
+                        <button (click)="d.toggle()">Toggle</button>
+                        <p>Fecha Ingreso</p>
+
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input class="form-control" placeholder="dd/mm/yyyy" name="d2" #c2="ngModel" [(ngModel)]="model2" ngbDatepicker #d2="ngbDatepicker">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <hr/>
+                        <button class="btn btn-sm btn-outline-primary" (click)="model2 = today">Select Today</button>
+                        <hr/>
+
+
+                        <pre>Model: {{ model2 | json }}</pre>
+                        <pre>State: {{ c2.status }}</pre>
+
+                        <input type="date" id="date_in">
+                        <p>Fecha Salida</p>
+                        <input type="date" id="date_out">
+                        <br>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-
-
 
     </div>
-</div>
+</section>

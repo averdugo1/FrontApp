@@ -23,6 +23,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { MainComponent } from './components/main/main.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -49,7 +50,8 @@ export function initializeApp(appConfig: AppConfig) {
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    APP_ROUTING
+    APP_ROUTING,
+    NgbModule
   ],
   providers: [
     DepartamentoService,
