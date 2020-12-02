@@ -41,23 +41,26 @@ export class LoginComponent implements OnInit {
         text: 'Espere porfavor...'
       });
       Swal.showLoading();
-      localStorage.setItem('userId', '1');
-      localStorage.setItem('username', this.loginForm.get('username').value);
-      localStorage.setItem('UserLogin', this.loginForm.get('username').value,);
-      Swal.close();
       console.log("It's valid! ", this.loginForm.get('username').value, this.loginForm.get('pass').value);
       console.log("It's valid! ", this.loginForm);
-      window.location.href = '/home';
-      /* this._loginService.login(this.loginForm.get('username').value, this.loginForm.get('pass').value).subscribe(
+      this._loginService.login(this.loginForm.get('username').value, this.loginForm.get('pass').value).subscribe(
         (data:any) => {
           document.cookie = "username="+data["email"];
           document.cookie = "profile="+data["profile"];
           localStorage.setItem('userId', data.userId);
           localStorage.setItem('username', data.username);
           localStorage.setItem('UserLogin', data.email);         
+          Swal.close();
           window.location.href = '/home';
+        },
+        (error: any) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error al autenticar',
+            text: 'Verifique los datos...'
+          });
         }
-      ); */
+      ); 
 
     } else {
       Swal.fire({
