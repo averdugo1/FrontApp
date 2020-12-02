@@ -146,8 +146,9 @@ export class DepartamentoComponent implements OnInit {
     var pago = this.depa.precio * 0.1 ;
     // TODO: Crear Checkin, Checkout, Estadia y luego reserva
     console.log('Ingreso de reserva');
-    fechai = moment(this.dateForm.get('date_in').value).format('YYYY/MM/DD');
-    fechat = moment(this.dateForm.get('date_out').value).format('YYYY/MM/DD');
+    console.log(this.dateForm.get('date_in').value, this.dateForm.get('date_out').value);
+    fechai = moment(this.dateForm.get('date_in').value, 'DD/MM/YYYY').format('YYYY/MM/DD');
+    fechat = moment(this.dateForm.get('date_out').value, 'DD/MM/YYYY').format('YYYY/MM/DD');
     console.log(fechai, fechat);
     this._checkinService.crear(fechai, pago).subscribe(
         (data:any)=> {        
