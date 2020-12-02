@@ -10,7 +10,8 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { ReservasComponent } from './components/reservas/reservas.component';
-
+import { MainComponent } from './components/main/main.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
@@ -23,6 +24,8 @@ const APP_ROUTES: Routes = [
     { path: 'contact', component: ContactusComponent},
     { path: 'servicios', component: ServiciosComponent},
     { path: 'reservas', component: ReservasComponent},
+    { path: 'main', component: MainComponent},
+    { path: 'profile/:id', component: UserProfileComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 /* , { useHash:true } */

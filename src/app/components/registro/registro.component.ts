@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { PersonaService } from 'src/app/services/persona.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro',
@@ -54,6 +55,11 @@ export class RegistroComponent implements OnInit {
         }
       );
     } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al registrar',
+        text: 'Verifique los datos...'
+      });
       console.log("It's not valid");
     }
   }

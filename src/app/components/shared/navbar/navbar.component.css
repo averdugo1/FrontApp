@@ -23,6 +23,7 @@
 }
 
 .sps--blw {
+    animation-name: fadeIn;
     background-color: #2B2B2B;
     color: #fff;
 }
