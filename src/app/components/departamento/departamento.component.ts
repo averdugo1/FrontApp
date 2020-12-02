@@ -19,7 +19,7 @@ import * as moment from 'moment';
 @Injectable()
 export class CustomAdapter extends NgbDateAdapter<string> {
 
-  readonly DELIMITER = '-';
+  readonly DELIMITER = '/';
 
   fromModel(value: string | null): NgbDateStruct | null {
     if (value) {
@@ -116,7 +116,7 @@ export class DepartamentoComponent implements OnInit {
         this.usrTrue = false;
       } else {
         this.usrTrue = true;      
-      }      
+      }
     }
     
     ngOnInit(): void {
@@ -146,9 +146,8 @@ export class DepartamentoComponent implements OnInit {
     var pago = this.depa.precio * 0.1 ;
     // TODO: Crear Checkin, Checkout, Estadia y luego reserva
     console.log('Ingreso de reserva');
-    console.log(this.date_in, this.date_out);
-    fechai = moment(this.date_in).format('YYYY/MM/DD');
-    fechat = moment(this.date_out).format('YYYY/MM/DD');
+    fechai = moment(this.dateForm.get('date_in').value).format('YYYY/MM/DD');
+    fechat = moment(this.dateForm.get('date_out').value).format('YYYY/MM/DD');
     console.log(fechai, fechat);
     this._checkinService.crear(fechai, pago).subscribe(
         (data:any)=> {        

@@ -30,7 +30,7 @@
                                 <div class="input-group">
                                     <p>Fecha Ingreso</p>
                                     <!-- input class="form-control" placeholder="dd/mm/yyyy" name="d2" #c2="ngModel" [(ngModel)]="model2" formControlName="date_in" ngbDatepicker #d2="ngbDatepicker" -->
-                                    <input class="form-control" placeholder="dd/mm/yyyy" name="d1" #c1="ngModel" [(ngModel)]="date_in" ngbDatepicker #d1="ngbDatepicker" >
+                                    <input class="form-control" placeholder="dd/mm/yyyy" name="d1" formControlName="date_in" ngbDatepicker #d1="ngbDatepicker" >
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"></button>
                                     </div>
@@ -40,7 +40,7 @@
                                 <div class="input-group">
                                     <p>Fecha Salida</p>
                                     <!-- input class="form-control" placeholder="dd/mm/yyyy" name="d2" #c2="ngModel" [(ngModel)]="model2"  formControlName="date_out" ngbDatepicker #d2="ngbDatepicker" -->
-                                    <input class="form-control" placeholder="dd/mm/yyyy" name="d2" #c2="ngModel" [(ngModel)]="date_out" ngbDatepicker #d2="ngbDatepicker" >
+                                    <input class="form-control" placeholder="dd/mm/yyyy" name="d2" formControlName="date_out" ngbDatepicker #d2="ngbDatepicker" >
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"></button>
                                     </div>
